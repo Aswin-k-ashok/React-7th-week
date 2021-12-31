@@ -1,10 +1,20 @@
 import React from 'react'
+import SampleComponent from './components/SampleComponent'
+import { useState } from 'react'
 
 function App() {
+  const[state,setState] = useState(false)       
   return (
     <div className="App">
-      <h1>hello world</h1>
-      
+      <button onClick={()=>{
+        return(
+          setState(!state)
+        )
+      }}>toggle</button>
+
+      {/* {state ? <SampleComponent/> : null} */}
+      {state && <SampleComponent/>}     
+
     </div>
   )
 }
