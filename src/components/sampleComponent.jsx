@@ -1,4 +1,6 @@
 import React from 'react'
+import sampleComponent from './components/'
+
 
 function Employee(props) {
     return (
