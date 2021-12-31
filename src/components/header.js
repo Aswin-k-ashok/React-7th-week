@@ -1,14 +1,19 @@
+import { useState } from "react"
 
-
-function header(){
-
+function Header(){
+    let navCol
+    const [col,setCol] =useState("red")
+    
     return(
         <div>
-            <h1>header</h1>
+            <h1 style={{color :{col}}}>header</h1>
             <button onClick={()=>{
-                
-            }}></button>
+                col = setCol("red")
+                console.log(col)
+            }}>change color</button>
         </div>
     )
 
 }
+
+export default Header
