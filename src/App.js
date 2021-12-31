@@ -1,36 +1,51 @@
-import './App.css'
-import Header from './components/header'  // gettin the imported component form components folder
+import React from 'react'
 
-function App(){
-  const lName="ashok"
-return(
- <div>
-   <Header lName = {lName}/>
-   <h1 style={{color:"red"}}>hello there</h1>
-   <Comp1/>
-   <p style={{backgroundColor:"blue"}}>aswin {lName}</p>
-   <Comp2/>
-   <h3 className='purple'>wakanda forever</h3>
- </div>
-);
+import Employee from './components/Employee'
 
+function App() {
+
+ let emp =[
+    {name:'aswin',age:'22'},
+    {name:'akhil',age:'23'},
+    {name:'anandu',age:'24'}
+  ]
+  
+
+  // return(             // passing component using object destructuring
+  //   <div>
+  //     {
+  //       emp.map((obj,index)=>  // removing braces will help to return the value without returning keyword
+  //         (
+  //           <Employee key={index} {...obj} />
+  //         )
+  //       )
+  //     }
+  //   </div>
+  // )
+  //   }
+
+  return (                   // component from Employee.jsx
+    <div className='App'>
+      {
+        emp.map((obj,index)=>{
+          return(
+
+            <Employee key={index} name={obj.name} age={obj.age}/>
+            )
+        })
+      }
+    </div>
+  )
 }
- 
-export default App;
 
+// function Employee(props){   // component inside the app folder
 
+//   return(
+//     <div>
+//       <h1>Name:{props.name} , age:{props.age}</h1>
+//     </div>
+//   )
 
-function Comp1(){   //foreign component
-  return(
-    <p style={{color:"grey"}}> i am </p>
-    )
-}
+// }
 
-function Comp2(){
-  return(
-
-    <p>i'm a fan of black panther</p>
-    )
-}
-
-console.log("this is that is wihch is who is",Header);
+export default App
